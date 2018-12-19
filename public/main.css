@@ -38,11 +38,13 @@ body{
     height: 45px;
     widows: 65px;
     background-color: orangered;
+    padding: 15px 32px 15px;
   }
   label{
     font-size: 25px;
 font-family: 'Oswald', sans-serif;
   }
+
  h2{ 
    font-family: 'Playfair Display', serif; 
  }

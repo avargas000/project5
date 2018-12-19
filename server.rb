@@ -58,7 +58,7 @@ post '/users/signup' do
   if temp_user
     redirect '/login'
   else
-    user = User.create(firstName: params["first_name"], lastName: params["lasst_name"],email: params["email"],  password: params["password"])
+    user = User.create(first_name: params["first_name"], last_name: params["last_name"],email: params["email"],  password: params["password"])
     session[:user_id] = user.id
     redirect '/'
   end
