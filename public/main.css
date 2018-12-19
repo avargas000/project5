@@ -1,0 +1,52 @@
+body{
+    background-image: url("IMG_0672.jpg");
+  }
+  
+  .barra{
+    position:absolute;
+  }
+  .cont{
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 1000px;
+    background-color: white;
+  }
+  .login{
+    display:inline-block;
+    margin-left:500px;
+    font-weight:100;
+    font-size:20px;
+  }
+  .signup{
+    display:inline-block;   
+    margin-left:30px;
+    font-weight:500;
+    background-color:bisque;
+    border-radius: 10%;
+    font-size:20px;
+  }
+  .ui-form{
+    text-align: center;
+    margin-top: 5%;
+    line-height: 2.5;
+  }
+ 
+  .ui.button{
+    border-radius: 15%;
+    height: 45px;
+    widows: 65px;
+    background-color: orangered;
+  }
+  label{
+    font-size: 25px;
+font-family: 'Oswald', sans-serif;
+  }
+ h2{ 
+   font-family: 'Playfair Display', serif; 
+ }
+
+ .spacer.{
+   height: 200px;
+ }
