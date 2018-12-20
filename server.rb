@@ -32,33 +32,44 @@ register Sinatra::Reloader
 enable :sessions
 
 get '/' do
-  if session[:user_id]
-    @user = User.find(session[:user_id])
+  # if session[:user_id]
+  #   @user = User.find(session[:user_id])
+  #   erb :index, :layout => :prime_layout
+  # else
     erb :index, :layout => :prime_layout
+# end
+end
+
+get '/homepage' do
+  if session[:user_id]
+    @test = Post.all
+    @user = User.find(session[:user_id])
+    erb :homepage, :layout => :prime_layout
   else
     erb :index, :layout => :prime_layout
 end
 end
 
+post "/create" do
+  
+  puts "wake up"
+  redirect '/homepage'
+end
 
-get '/feeds.erb' do
-
+get '/feeds' do
   erb :feeds, :layout => :prime_layout
 
 end
 
-get '/pasta.erb' do
-
+get '/pasta' do
   erb :pasta, :layout => :prime_layout
 
 end
 get '/gluten' do
-
   erb :gluten, :layout => :prime_layout
 
 end
 get '/vegan' do
-
   erb :vegan, :layout => :prime_layout
 
 end
@@ -74,7 +85,7 @@ post '/users/login' do
   puts ">>>>>>>>>>>>"
   if user
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/homepage'
   else
     redirect '/login'
   end

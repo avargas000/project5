@@ -35,10 +35,12 @@ body{
  
   .ui.button{
     border-radius: 15%;
-    height: 45px;
+    height: 55px;
     widows: 65px;
+    color:white;
+    font-size: 20px;
     background-color: orangered;
-    padding: 15px 32px 15px;
+    padding: 15px 15px 15px 15px;
   }
   label{
     font-size: 25px;
@@ -75,4 +77,23 @@ ol{
 #log{
   width: 30px;
   height: 30px;
+}
+textarea{
+  margin-left: 100px;
+  text-align: center;
+  width: 500px; 
+  height: 100px;
+}
+h3{
+  margin-left: 100px;
+}
+
+#send{
+  border-radius: 15%;
+  height: 55px;
+  widows: 65px;
+  color:white;
+  font-size: 20px;
+  background-color: orangered;
+  padding: 15px 15px 15px 15px;
 }

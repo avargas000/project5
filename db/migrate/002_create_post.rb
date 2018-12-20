@@ -1,14 +1,14 @@
-class CreatPost < ActiveRecord::Migration[5.0]
+class CreatePost < ActiveRecord::Migration[5.0]
     def up
-      create_table :post do |t|
+      create_table :posts do |t|
         t.string :title
         t.string :summary
         t.string :date
-        
+        t.references :user
       end
     end
 
   def down
-    drop_table :post
+    drop_table :posts
   end
 end
