@@ -9,6 +9,12 @@ require 'active_record'
 # require './models/cake.rb'
 require './models/post.rb'
 require './models/user.rb'
+
+# require './signup'
+# require './login'
+# require './pasta'
+# require './gluten'
+# require './vegan'
 require "faker"
 
 # Use `binding.pry` anywhere in this script for easy debugging
@@ -26,13 +32,38 @@ register Sinatra::Reloader
 enable :sessions
 
 get '/' do
-
+  if session[:user_id]
+    @user = User.find(session[:user_id])
     erb :index, :layout => :prime_layout
-  
+  else
+    erb :index, :layout => :prime_layout
+end
 end
 
 
-get '/login.erb' do
+get '/feeds.erb' do
+
+  erb :feeds, :layout => :prime_layout
+
+end
+
+get '/pasta.erb' do
+
+  erb :pasta, :layout => :prime_layout
+
+end
+get '/gluten' do
+
+  erb :gluten, :layout => :prime_layout
+
+end
+get '/vegan' do
+
+  erb :vegan, :layout => :prime_layout
+
+end
+
+get '/login' do
   erb :login, :layout => :prime_layout
 end
 
@@ -49,7 +80,7 @@ post '/users/login' do
   end
 end
 
-get '/signup.erb' do
+get '/signup' do
   erb :signup, :layout => :prime_layout
 end
 

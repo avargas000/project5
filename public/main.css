@@ -52,3 +52,27 @@ font-family: 'Oswald', sans-serif;
  .spacer.{
    height: 200px;
  }
+
+.context{
+  margin-top: 5%;
+  width: 100%;
+  font-size: 25px;
+  height: 400px;
+  background-color: white;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-align: left;
+}
+img{
+  float: right;
+  width: 200px;
+  height: 200px;
+}
+ol{
+  font-size: 20px;
+  padding-left: 20px;
+}
+#log{
+  width: 30px;
+  height: 30px;
+}
