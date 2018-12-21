@@ -1,10 +1,11 @@
 class CreatePost < ActiveRecord::Migration[5.0]
     def up
       create_table :posts do |t|
+        t.integer :user_id
         t.string :title
         t.string :summary
         t.string :date
-        t.references :user
+        t.string :image
       end
     end
 

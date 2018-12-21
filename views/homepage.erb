@@ -4,15 +4,29 @@
  <br> <br>
 
 <form method="POST" action="/create">
-  <h3> Blog Away: </h3>
-  <textarea name="message" placeholder="Type your message here"></textarea> 
-  <br>
+<label> Blog Away: </label>
+
+<div class="field">  
+<textarea name="summary" placeholder="Type your message here"></textarea> 
+<div>
+
+<div class ="two fields">
+  <div class="field">
+  <label> Add Title </label>
+    <input name="title" required type="text" placeholder="">
+  <div>
+  <div class="field">
+  <label> Add image </label>
+    <input name="image" required type="text" placeholder="">
+  <div>
+</div>
+
   <button id="send" type="submit">Send</button>
 </form>
 
 
 
-    <%= @test.inspect %>
+
    
 
 </center>

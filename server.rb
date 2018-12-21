@@ -51,12 +51,14 @@ end
 end
 
 post "/create" do
-  
+  Post.create(user_id: session[:user_id], title: params["title"], summary: params["summary"], date: params["date"], image: params["image"])
   puts "wake up"
-  redirect '/homepage'
+  erb :homepage
+  redirect '/feeds'
 end
 
 get '/feeds' do
+  @allposts = Post.all.reverse
   erb :feeds, :layout => :prime_layout
 
 end

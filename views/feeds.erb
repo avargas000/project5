@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ui feed">
+<center><h2> Your Feed</h2> </center>
+
+<% for post in @allposts do%>
+ 
+  <div class="event">
+    <div class="label">
+  
+    </div>
+    <div class="content">
+      <div class="summary">
+        <a class="user">
+        <%= post.user.first_name %>
+      
+        </a> created a post
+        <br>
+        <h1 id ="post_title"> <%= post.title %> </h1>
+        <p id ="post_paragraph"> <%= post.summary %> </p>
+        <img id ="post_image" src="<%= post.image %>">
+        
+        <div class="meta">
+        <a class="like">
+        <i class="like icon"></i> 4 Likes
+        </a>
+        </div>
+        </div>
+        </div>
+        
+ <% end %>
+</div>
+</div>
