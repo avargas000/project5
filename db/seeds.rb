@@ -4,8 +4,10 @@ Post.create(title: "test", summary: "test1", date: "test2", user_id: 1)
 
 
 if ENV["DATABASE_URL"]
+  require 'pg'
     ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
   else
+    require 'sqlite3'
     ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
     database: 'db/development.db'
