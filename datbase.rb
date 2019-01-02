@@ -1,6 +1,5 @@
 
 # Run this script with `bundle exec ruby app.rb`
-require 'sqlite3'
 require 'active_record'
 
 #require classes
