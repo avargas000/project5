@@ -1,3 +1,9 @@
+ <div class='del'> 
+  <a href="/account/delete/<%= @user.id %>" class="negative ui button">
+  Delete Account
+  </a>
+</div>
+
 <center> <h1>Welcome to Home</h1>
 <h2> Ready to post? </h2>
 
@@ -6,27 +12,20 @@
 <form method="POST" action="/create">
 <label> Blog Away: </label>
 
+
+<div class="field">
+<label> Add Title </label>
+  <input name="title" required type="text" placeholder="">
+  </div>
+
 <div class="field">  
 <textarea name="summary" placeholder="Type your message here"></textarea> 
-<div>
-
-<div class ="two fields">
-  <div class="field">
-  <label> Add Title </label>
-    <input name="title" required type="text" placeholder="">
-  <div>
-  <div class="field">
-  <label> Add image </label>
-    <input name="image" required type="text" placeholder="">
-  <div>
 </div>
+
+
 
   <button id="send" type="submit">Send</button>
 </form>
 
-
-
-
-   
-
 </center>
+

@@ -32,7 +32,7 @@ else
   require 'sqlite3'
   ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: 'db/development.db'
+  database: 'db/rumblr.db'
   )
 
 end
@@ -42,12 +42,12 @@ register Sinatra::Reloader
 enable :sessions
 
 get '/' do
-  # if session[:user_id]
-  #   @user = User.find(session[:user_id])
-  #   erb :index, :layout => :prime_layout
-  # else
+  if session[:user_id]
+    @user = User.find(session[:user_id])
     erb :index, :layout => :prime_layout
-# end
+  else
+    erb :index, :layout => :prime_layout
+end
 end
 
 get '/homepage' do
@@ -57,17 +57,30 @@ get '/homepage' do
     erb :homepage, :layout => :prime_layout
   else
     erb :index, :layout => :prime_layout
-end
+  end
 end
 
 post "/create" do
-  Post.create(user_id: session[:user_id], title: params["title"], summary: params["summary"], date: params["date"], image: params["image"])
-  puts "wake up"
-  erb :homepage
-  redirect '/feeds'
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    Post.create(user_id: session[:user_id], title: params["title"], summary: params["summary"])
+    puts "wake up"
+    # erb :homepage
+    redirect '/feeds'
+  else
+    erb :index, :layout => :prime_layout
+  end
+  
+end
+
+get '/profile' do
+  @user = User.find(session[:user_id])
+  @allposts = Post.all.reverse
+  erb :profile, :layout => :prime_layout
 end
 
 get '/feeds' do
+  @user = User.find(session[:user_id])
   @allposts = Post.all.reverse
   erb :feeds, :layout => :prime_layout
 
@@ -116,6 +129,15 @@ post '/users/signup' do
     session[:user_id] = user.id
     redirect '/'
   end
+end
+
+get '/account/delete/:id' do
+  user_id = params[:id]
+  user = User.find_by_id(user_id)
+  user.posts.destroy_all
+  User.find(session[:user_id]).destroy
+  session[:user_id] = nil
+  redirect '/login'
 end
 
 get '/logout' do

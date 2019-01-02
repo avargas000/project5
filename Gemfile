@@ -4,6 +4,8 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'activerecord'
 
+gem "volt"
+
 gem 'rake'
 gem 'rack'
 gem 'logger'

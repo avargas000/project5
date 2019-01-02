@@ -1,6 +1,17 @@
-User.create(first_name: "Fizal", last_name: "Sarif", password: "test1234", email: "fizal@nycda.com")
-Post.create(title: "test", summary: "test1", date: "test2", user_id: 1)
+require "faker"
 
+user_collection = Volt.current_app.store.users
+
+10.times do |num|
+  .create(email: Faker::Internet.email,
+          password: "coding123",
+          first_name: Faker::Name.first_name,
+          last_name: Faker::Name.last_name,
+          posts: Faker::Lorem.sentence)
+          .then {|user| puts "added user ## {num}. #{user.name}"}
+          .fail {|error| puts "failed to add user ## {num}. #{error}"}
+
+end
 
 
 if ENV["DATABASE_URL"]
