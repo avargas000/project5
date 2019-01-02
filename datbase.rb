@@ -20,4 +20,14 @@ ActiveRecord::Base.establish_connection(
   database: './db/rumblr.db'
 )
 
+if ENV["DATABASE_URL"]
+  ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"])
+else
+  ActiveRecord::Base.establish_connection(
+  adapter: 'sqlite3',
+  database: 'db/development.db'
+  )
+
+end
+
 binding.pry
